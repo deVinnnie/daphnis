@@ -1,0 +1,14 @@
+[Unit]
+Description=Docker Compose Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+
+ExecStartPre=-/usr/local/bin/docker-compose -f /home/vincent/docker-compose.yaml down  
+ExecStart=/usr/local/bin/docker-compose -f /home/vincent/docker-compose.yaml up -d  
+ExecStop=/usr/local/bin/docker-compose -f /home/vincent/docker-compose.yaml stop 
+
+[Install]
+WantedBy=multi-user.target  

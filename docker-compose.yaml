@@ -1,0 +1,20 @@
+version: "2"
+services:
+  dash:
+    image: husseingalal/busydash
+    ports:
+      - "8000:80"
+    networks:
+      - frontend
+  minetest:
+    image: minetest
+    ports:
+      - "30000/udp:30000/udp"
+    networks:
+      - frontend
+    volumes:
+      - /home/vincent/minetest-data/mods:/home/minetest/minetest-bin/mods:rw
+      - /home/vincent/minetest-data/worlds:/home/minetest/worlds:rw
+networks:
+  frontend:
+    driver: bridge
