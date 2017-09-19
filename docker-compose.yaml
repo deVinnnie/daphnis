@@ -15,6 +15,29 @@ services:
     volumes:
       - /home/vincent/minetest-data/mods:/home/minetest/minetest-bin/mods:rw
       - /home/vincent/minetest-data/worlds:/home/minetest/worlds:rw
+  nextcloud:
+    image: nextcloud:12-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - /home/vincent/nextcloud/data:/var/www/html/data
+      - /home/vincent/nextcloud/config:/var/www/html/config
+      - /home/vincent/nextcloud/apps:/var/www/html/custom_apps
+    networks:
+    - frontend
+    links:
+      - db
+  db:
+    image: mysql
+    volumes:
+      - /home/vincent/mysql/:/var/lib/mysql
+    networks:
+    - frontend
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
 networks:
   frontend:
     driver: bridge
