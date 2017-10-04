@@ -25,8 +25,19 @@ services:
       - /home/vincent/nextcloud/apps:/var/www/html/custom_apps
     networks:
     - frontend
-    links:
+    depends_on:
       - db
+  nginx:
+    build:
+        context: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/vincent/ssl/:/etc/nginx/ssl
+    networks:
+      - frontend
+    restart: always
   db:
     image: mysql
     volumes:
