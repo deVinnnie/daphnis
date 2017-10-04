@@ -1,0 +1,10 @@
+[Unit]
+Description=DuckDNS Updater
+
+[Service]
+Type=oneshot  
+ExecStart=/home/vincent/duckdns/duck.sh 
+
+[Install]
+WantedBy=multi-user.target  
+
