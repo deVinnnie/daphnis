@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatically Shutdown Server
+
+[Service]
+Type=oneshot  
+ExecStart=/sbin/shutdown -h 22:30
+
+[Install]
+WantedBy=multi-user.target
