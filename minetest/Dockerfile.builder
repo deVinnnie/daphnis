@@ -42,15 +42,15 @@ RUN git clone -b stable-0.4 --depth 1 https://github.com/minetest/minetest.git /
 # Prepare Compilation
 RUN cd /tmp/minetest && \
     cmake . \
-    -DRUN_IN_PLACE=TRUE \
-	-DBUILD_CLIENT=0 \
-	-DBUILD_SERVER=1 \
-	-DENABLE_CURL=1 \
-	-DENABLE_LEVELDB=0 \
-	-DENABLE_LUAJIT=1 \
-	-DENABLE_REDIS=0 \
-	-DENABLE_SOUND=0 \
-	-DENABLE_SYSTEM_GMP=1
+  -DRUN_IN_PLACE=TRUE \
+	-DBUILD_CLIENT=FALSE \
+	-DBUILD_SERVER=TRUE \
+	-DENABLE_CURL=TRUE \
+	-DENABLE_LEVELDB=FALSE \
+	-DENABLE_LUAJIT=TRUE \
+	-DENABLE_REDIS=FALSE \
+	-DENABLE_SOUND=FALSE \
+	-DENABLE_SYSTEM_GMP=FALSE  \
     
 # Compile MineTest
 RUN cd /tmp/minetest && \
