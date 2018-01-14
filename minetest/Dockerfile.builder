@@ -51,6 +51,8 @@ RUN cd /tmp/minetest && \
 	-DENABLE_REDIS=FALSE \
 	-DENABLE_SOUND=FALSE \
 	-DENABLE_SYSTEM_GMP=FALSE  \
+  -DLUA_INCLUDE_DIR=/usr/include/luajit-2.1 \
+  -DLUA_LIBRARY=/usr/lib/libluajit-5.1.so # path to libluajit.a/libluajit.so
     
 # Compile MineTest
 RUN cd /tmp/minetest && \
