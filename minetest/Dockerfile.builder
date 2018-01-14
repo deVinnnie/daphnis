@@ -37,7 +37,7 @@ apk add --no-cache --virtual=build-dependencies \
 
 
 # Clone MineTest
-RUN git clone --depth 1 https://github.com/minetest/minetest.git /tmp/minetest
+RUN git clone -b stable-0.4 --depth 1 https://github.com/minetest/minetest.git /tmp/minetest
 
 # Prepare Compilation
 RUN cd /tmp/minetest && \
