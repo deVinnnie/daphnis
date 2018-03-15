@@ -4,14 +4,10 @@ services:
     image: husseingalal/busydash
     ports:
       - "8000:80"
-    networks:
-      - frontend
   minetest:
     image: minetest
     ports:
       - "30000/udp:30000/udp"
-    networks:
-      - frontend
     volumes:
       - /home/vincent/minetest-data/mods:/home/minetest/minetest-bin/mods:rw
       - /home/vincent/minetest-data/worlds:/home/minetest/worlds:rw
@@ -23,8 +19,6 @@ services:
       - /home/vincent/nextcloud/data:/var/www/html/data
       - /home/vincent/nextcloud/config:/var/www/html/config
       - /home/vincent/nextcloud/apps:/var/www/html/custom_apps
-    networks:
-    - frontend
     depends_on:
       - db
   nginx:
@@ -35,20 +29,13 @@ services:
       - 443:443
     volumes:
       - /home/vincent/ssl/:/etc/nginx/ssl
-    networks:
-      - frontend
     restart: always
   db:
     image: mysql
     volumes:
       - /home/vincent/mysql/:/var/lib/mysql
-    networks:
-    - frontend
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-networks:
-  frontend:
-    driver: bridge
