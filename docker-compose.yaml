@@ -1,9 +1,5 @@
 version: "2"
 services:
-  dash:
-    image: husseingalal/busydash
-    ports:
-      - "8000:80"
   minetest:
     image: minetest
     ports:
