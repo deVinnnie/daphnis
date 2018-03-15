@@ -35,3 +35,10 @@ services:
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
+  minetest-map:
+    image: minetest-map
+    volumes:
+      - /home/vincent/minetest-data/worlds/the_world/:/opt/world
+      - /home/vincent/minetest-tiles:/opt/tiles
+    ports:
+     - 8081:8080
