@@ -42,3 +42,11 @@ services:
       - /home/vincent/minetest-tiles:/opt/tiles
     ports:
      - 8081:8080
+  # jekyll:
+  #   image: jekyll/jekyll:3.7
+  #   command: jekyll serve
+  #   volumes:
+  #     - /home/vincent/jekyll-blog:/srv/jekyll
+  #     - /home/vincent/jekyll-blog/vendor/bundle:/usr/local/bundle
+  #   ports:
+  #     - 4000:4000
