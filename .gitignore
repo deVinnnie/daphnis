@@ -2,3 +2,14 @@
 mysql/
 nextcloud/
 duckdns/
+ssl/
+minetest-data/
+minetest-tiles/
+minetest-map/
+.ssh/
+.profile
+.config/
+jekyll-blog/
+.bash*
+noip*
+._noip*
