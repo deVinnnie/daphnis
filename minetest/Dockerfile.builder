@@ -56,7 +56,7 @@ RUN cd /tmp/minetest && \
     
 # Compile MineTest
 RUN cd /tmp/minetest && \
- make && \
+ make -j 2 && \
  make install
  
 # Install MineTest game
