@@ -12,9 +12,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - /home/vincent/nextcloud/data:/var/www/html/data
-      - /home/vincent/nextcloud/config:/var/www/html/config
-      - /home/vincent/nextcloud/apps:/var/www/html/custom_apps
+      - /home/vincent/nextcloud/:/var/www/html/
     depends_on:
       - db
   nginx:
