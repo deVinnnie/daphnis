@@ -1,5 +1,13 @@
 version: "2"
 services:
+  portainer:
+    image: portainer/portainer:1.19.2
+    ports:
+      - "9000:9000"
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/vincent/portainer_data:/data
   minetest:
     image: minetest
     ports:
