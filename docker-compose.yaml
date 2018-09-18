@@ -8,7 +8,7 @@ services:
       - /home/vincent/minetest-data/mods:/home/minetest/minetest-bin/mods:rw
       - /home/vincent/minetest-data/worlds:/home/minetest/worlds:rw
   nextcloud:
-    image: nextcloud:12-apache
+    image: nextcloud:13-apache
     ports:
       - "8080:80"
     volumes:
@@ -25,7 +25,7 @@ services:
       - /home/vincent/ssl/:/etc/nginx/ssl
     restart: always
   db:
-    image: mysql
+    image: mysql:5.7.19
     volumes:
       - /home/vincent/mysql/:/var/lib/mysql
     environment:
